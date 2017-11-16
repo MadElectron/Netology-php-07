@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Тест</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css?v1.00001">
 </head>
 <body>
     <div class="container">
@@ -50,9 +50,13 @@
             if(isset($_POST['submit'])) :
                 $result = array_sum($_POST);
                 $qCount = count($test['questions']);
+                $username = $_POST['username'];
+                $imagePath = "certificate.php?result=$result&qcount=$qCount&username=$username";
 
         ?>
-            <img src="<?php echo "certificate.php?result=$result&qcount=$qCount" ?>" alt="Сертификат">
+            <a href="<?php echo $imagePath ?>" title="Скачать" download>
+                <img class="certificate" src="<?php echo $imagePath ?>" alt="Сертификат">
+            </a>
             <p><strong>Результат: <?php echo $result.' из '.$qCount; ?>.</p></strong>
             <p><a href="">Пройти заново</a></p>
         
@@ -63,7 +67,6 @@
         
 
         <form action="test.php?id=<?php echo $testId; ?>" method="post">
-            <input type="text" name="username" value="" placeholder="Введите ваше имя">
             <?php foreach ($test['questions'] as $qNum => $question) { ?>  
                 <p><strong><?php echo $question['id'].'. '.$question['content']; ?></strong></p>
                 <?php foreach ($question['answers'] as $aNum => $answer) {  
@@ -75,6 +78,8 @@
                 </label>
             <?php } ?>
         <?php } ?>
+        <br>
+        <input type="text" name="username" value="" placeholder="Введите ваше имя" required>
         <hr>
         <input type="submit" name="submit" value="Ответить">
         </form>
