@@ -25,7 +25,8 @@
             }
 
             if(!$test) {
-                echo '<p class="alert">Теста с id <strong>'.$testId.'</strong> не существует!</p>';
+                http_response_code(404);
+                // echo '<p class="alert">Теста с id <strong>'.$testId.'</strong> не существует!</p>';
                 exit;
             }
 
@@ -49,8 +50,9 @@
             if(isset($_POST['submit'])) :
                 $result = array_sum($_POST);
                 $qCount = count($test['questions']);
-        ?>
 
+        ?>
+            <img src="<?php echo "certificate.php?result=$result&qcount=$qCount" ?>" alt="Сертификат">
             <p><strong>Результат: <?php echo $result.' из '.$qCount; ?>.</p></strong>
             <p><a href="">Пройти заново</a></p>
         
@@ -61,12 +63,13 @@
         
 
         <form action="test.php?id=<?php echo $testId; ?>" method="post">
-        <?php foreach ($test['questions'] as $qNum => $question) { ?>  
-            <p><strong><?php echo $question['id'].'. '.$question['content']; ?></strong></p>
-            <?php foreach ($question['answers'] as $aNum => $answer) {  
-                $answerId = 'q'.$qNum.'a'.$aNum;
-                $questionId = 'q'.$qNum;
-            ?>
+            <input type="text" name="username" value="" placeholder="Введите ваше имя">
+            <?php foreach ($test['questions'] as $qNum => $question) { ?>  
+                <p><strong><?php echo $question['id'].'. '.$question['content']; ?></strong></p>
+                <?php foreach ($question['answers'] as $aNum => $answer) {  
+                    $answerId = 'q'.$qNum.'a'.$aNum;
+                    $questionId = 'q'.$qNum;
+                ?>
                 <label for="<?php echo $answerId; ?>">
                     <input type="radio" name="<?php echo $questionId; ?>" value="<?php echo $answer['right']; ?>" id="<?php echo $answerId; ?>"><?php echo $answer['content']; ?>
                 </label>
