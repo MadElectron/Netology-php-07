@@ -23,10 +23,9 @@
             <input type="submit" name="submit" value="Загрузить">
         </form>
         <?php 
-            
+
             function checkTestsErrors($filename) {
 
-                // $json = file_get_contents('tests/'.$filename);
                 $json = file_get_contents($filename);
                 $data = json_decode($json, true);
                 $errCount = 0;
@@ -57,9 +56,6 @@
                         continue;
                     }
 
-                    // Test info output
-                    echo '<h3><strong>Тест '.$test['id'].'. '.$test['name'].'</strong></h3>';
-
                     if (!count($test['questions'])) {
                         $errCount++;
                         echo '<p class="alert">Список вопросов пуст.</p>';
@@ -83,9 +79,6 @@
                             echo '</ul>';
                         }
 
-                        // Question info output
-                        echo '<p><strong>Вопрос '.$question['id'].': '.$question['content'].'</strong></p>';
-
                         if (!count($question['answers'])) {
                             $errCount++;
                             echo '<p class="alert">Список ответов пуст.</p>';
@@ -95,7 +88,6 @@
                         // Checking answer consistncy
                         $answerParams = ['content' => 'Содержание ответа', 'right' => 'Правильность'];
 
-                        echo '<ul>';
                         foreach($question['answers'] as $aNum => $answer) {
                             $missingParams = array_diff(array_keys($answerParams), array_keys($answer));
 
@@ -110,12 +102,7 @@
                                 echo '</ul>';
                                 continue;
                             }
-
-                            //Answer info output
-                            echo '<li'.($answer['right'] ? ' class="right">' : '>')
-                                .$answer['content'].'</li>';
                         }
-                        echo '</ul>';        
 
                         // Checking presence of right answers
                         $rights = array_column($question['answers'], 'right');
@@ -127,9 +114,6 @@
 
                 if($errCount) {
                     echo '<p class="alert"><strong>Ошибок в файле: '.$errCount.'</strong></p>';
-                }
-                else {
-                    echo '<p class="success"><strong>Все тесты в порядке!</strong></p>';
                 }
 
                 return $errCount;
@@ -153,14 +137,13 @@
                     $errCount = checkTestsErrors($tmpName);
 
                     if (!$errCount) {
-                        echo '<p class="success">Файл '.$name.' успешно загружен</p>';
+                        
                         move_uploaded_file($tmpName, 'tests/tests.json');
+                        header("Location: list.php");
                     }
                     else {
                         echo '<p class="alert">Файл '.$name.' не загружен. Ошибок в файле:'.$errCount.'</p>';
                     }
-
-                    
                 }
                 else {
                     echo '<p class="alert">Файл неверного типа или не выбран! Допускаются только файлы в формате json.</p>';
