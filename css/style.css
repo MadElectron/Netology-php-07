@@ -1,0 +1,49 @@
+* {
+    font-family: "Arial", sans-serif;
+}
+
+label {
+    display: block;
+}
+
+input
+{   
+    vertical-align: middle;
+}
+
+label[for]:hover {
+    background: rgba(0, 255, 0, 0.2);
+    cursor: pointer;
+}
+
+.container {
+    width: 1000px;
+    margin:  0 auto;
+}        
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li:not(:last-child)::after {
+    content: ' |';
+    margin: 0 5px;
+}
+
+p.alert {
+    color: red;
+}
+
+p.success {
+    color: green;
+}
+
+li.right {
+    font-style: italic;
+    font-weight: bold;
+}
+

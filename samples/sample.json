@@ -1,0 +1,189 @@
+[{
+    "id"        : 1,
+    "name"      : "Единицы измерения",
+    "questions" :
+    [
+        {
+            "id"       : 1, 
+            "content"  : "Сколько грамм в килограмме?",
+            "answers"  : [
+                {
+                "content"   : "10",
+                "right"     :  false
+                },
+                {
+                "content"   : "100",
+                "right"     :  false
+                },
+                {
+                "content"   : "1000",
+                "right"     :  true
+                },        
+                {
+                "content"   : "10000",
+                "right"     :  false
+                }        
+            ] 
+        },
+        {
+            "id"       : 2, 
+            "content"  : "Сколько градусов в прямом углу?",
+            "answers"  : [
+                {
+                "content"   : "60",
+                "right"     :  false
+                },
+                {
+                "content"   : "90",
+                "right"     :  true
+                },
+                {
+                "content"   : "100",
+                "right"     :  false
+                },        
+                {
+                "content"   : "120",
+                "right"     :  false
+                }        
+            ]
+        }, 
+        {
+            "id"       : 3, 
+            "content"  : "Сколько сантиметров в метре?",
+            "answers"  : [
+                {
+                "content"   : "10",
+                "right"     :  false
+                },
+                {
+                "content"   : "100",
+                "right"     :  true
+                },
+                {
+                "content"   : "1000",
+                "right"     :  false
+                },        
+                {
+                "content"   : "10000",
+                "right"     :  false
+                }        
+            ] 
+        }, 
+        {
+            "id"       : 4, 
+            "content"  : "Сколько байт в мегабайте?",
+            "answers"  : [
+                {
+                "content"   : "10",
+                "right"     :  false
+                },
+                {
+                "content"   : "100",
+                "right"     :  false
+                },
+                {
+                "content"   : "1000",
+                "right"     :  false
+                },        
+                {
+                "content"   : "1024",
+                "right"     :  true
+                }        
+            ] 
+        }, 
+        {
+            "id"       : 5, 
+            "content"  : "Сколько бит в байте?",
+            "answers"  : [
+                {
+                "content"   : "2",
+                "right"     :  false
+                },
+                {
+                "content"   : "8",
+                "right"     :  true
+                },
+                {
+                "content"   : "10",
+                "right"     :  false
+                },        
+                {
+                "content"   : "16",
+                "right"     :  false
+                }        
+            ] 
+        } 
+    ]
+},
+{
+    "id"    : 2,
+    "name"  : "Столицы",
+    "questions" : [
+        {
+            "id"       : 1, 
+            "content"  : "Какой город является столицей Австралии?",
+            "answers"  : [
+                {
+                "content"   : "Сидней",
+                "right"     :  false
+                },
+                {
+                "content"   : "Канберра",
+                "right"     :  true
+                },
+                {
+                "content"   : "Аделаида",
+                "right"     :  false
+                },        
+                {
+                "content"   : "Веллингтон",
+                "right"     :  false
+                }        
+            ] 
+        },
+        {
+            "id"       : 2, 
+            "content"  : "Столицей какого государства является Братислава?",
+            "answers"  : [
+                {
+                "content"   : "Чехия",
+                "right"     :  false
+                },
+                {
+                "content"   : "Черногория",
+                "right"     :  false
+                },
+                {
+                "content"   : "Македония",
+                "right"     :  false
+                },        
+                {
+                "content"   : "Словакия",
+                "right"     :  true
+                }        
+            ]
+        }, 
+        {
+            "id"       : 3, 
+            "content"  : "Из какого города была перенесена столица Бразилии в город Бразилиа?",
+            "answers"  : [
+                {
+                "content"   : "Белу-Оризонти",
+                "right"     :  false
+                },
+                {
+                "content"   : "Рио-де-Жанейро",
+                "right"     :  true
+                },
+                {
+                "content"   : "Сан-Паулу",
+                "right"     :  false
+                },        
+                {
+                "content"   : "Санта-Клара",
+                "right"     :  false
+                }        
+            ] 
+        } 
+    ]
+}]
